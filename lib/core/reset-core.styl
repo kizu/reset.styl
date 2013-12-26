@@ -6,6 +6,10 @@ get_reset_items($string)
   return split(',', replace(',? +', ',', $string))
 
 
+// Function to register the given reset $declaration with the given $name
+register_reset($name, $declaration)
+  return true
+
 // `use_reset` uses the existing reset, for everything if nothing passed,
 // passed items only otherwise
 
