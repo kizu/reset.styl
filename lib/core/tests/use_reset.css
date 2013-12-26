@@ -1,0 +1,39 @@
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.foo {
+  display: block;
+}
+ul {
+  list-style-type: none;
+}
+.foo {
+  test1: 'all';
+  test2: ;
+}
+ol,
+body,
+ul,
+.b-body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+body,
+.b-body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+.bar {
+  test1: 'all';
+  test2: 'ol' 'li';
+}

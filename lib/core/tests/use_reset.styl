@@ -1,0 +1,50 @@
+$reset-whatever-declaration = {
+  'base': {
+    'elements': 'ol' 'ul' 'li' 'table' 'div'
+
+    'rules': {
+      margin: 0
+      padding: 0
+      border: 0
+    }
+  }
+
+  'whatever': {
+    'elements': 'aside' 'section' 'article'
+
+    'rules': {
+      display: block
+    }
+  }
+
+  'ul': {
+    'rules': {
+      list-style-type: none
+    }
+  }
+}
+
+register_reset('whatever', $reset-whatever-declaration)
+
+use_reset('whatever')
+
+.foo
+  test1: $used_resets.whatever
+  test2: $used_resets.meyer
+
+  // Manual extending reset
+  @extend $reset_whatever_whatever
+
+use_reset('meyer', 'ol, li')
+// use_reset('meyer', 'li, p')
+
+.bar
+  test1: $used_resets.whatever
+  test2: $used_resets.meyer
+
+
+reset('ol, body')
+reset('ul, lulz')
+
+.b-body
+  reset('body')

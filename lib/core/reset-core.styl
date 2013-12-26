@@ -16,12 +16,58 @@ register_reset($name, $declaration)
 
 // Function to use the reset with the registered $name for the given elements
 // (all elements if the second argument is omitted)
+$used_resets = {}
 use_reset($name, $elements = 'all')
-  return true
+  if selector() != '&'
+    error('`use_reset` can be used only at the top level, not inside the selector scope!')
+
+  if $name in $registered_resets
+    // if $name in $used_resets
+    //   $used_resets[$name] = merge($used_resets[$name], get_reset_items($elements))
+    unless $name in $used_resets
+      $used_resets[$name] = get_reset_items($elements)
+
+      // Placing the placeholders for the groups
+      for $group_name, $group in $registered_resets[$name]
+        $reset_{ $name + '_' + $group_name }
+          $content = $group.rules
+          {$content}
 
 
-// `apply_reset` the same above, but apply things straight away
+// The main function for calling the reset
+reset($elements)
+  $elements = get_reset_items($elements)
 
+  $should_reset = false
+  $what_to_reset = ()
+
+  for $element in $elements
+    for $reset, $reset_elements in $used_resets
+      if ('all' in $reset_elements) or ($element in $reset_elements)
+        $should_reset = true
+
+    if $should_reset
+      for $reset_family, $reset_family_content in $registered_resets
+        for $reset_group, $reset_content in $reset_family_content
+          $should_reset = false
+          if $reset_content.elements
+            if $element in $reset_content.elements
+              $should_reset = true
+          else
+            if $element == $reset_group
+              $should_reset = true
+
+          if $should_reset
+            $selector = '&'
+            $selector = $element if selector() == '&'
+            $what = {}
+            $what[$selector] = '$reset_' + $reset_family + '_' + $reset_group
+            push($what_to_reset, $what)
+
+  // Could be moved inside conditions above when the bug with extend would be fixed
+  for $item in $what_to_reset
+    {keys($item)}
+      @extend {values($item)}
 
 // `enhance_reset` would enhance the given reset key with the given hash or block
 
