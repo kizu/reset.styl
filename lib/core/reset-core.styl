@@ -1,0 +1,20 @@
+// Core functions for make the reset work
+// ======================================
+
+// Get the list of the items to reset from a string
+get_reset_items($string)
+  return split(',', replace(',? +', ',', $string))
+
+
+// `use_reset` uses the existing reset, for everything if nothing passed,
+// passed items only otherwise
+
+
+// `apply_reset` the same above, but apply things straight away
+
+
+// `enhance_reset` would enhance the given reset key with the given hash or block
+
+
+// `call_reset` — the main reset function. Should we call it just `reset`?
+// Or make an optional `?= reset` alias for this?

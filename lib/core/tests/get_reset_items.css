@@ -1,0 +1,7 @@
+.foo {
+  test1: 'ul';
+  test2: 'ul' 'li';
+  test3: 'ul' 'li';
+  test4: 'ul' 'li' 'a';
+  test5: 'ul' 'li' 'a' 'h1';
+}
