@@ -10,8 +10,11 @@ get_reset_items($string)
 register_reset($name, $declaration)
   return true
 
-// `use_reset` uses the existing reset, for everything if nothing passed,
-// passed items only otherwise
+
+// Function to use the reset with the registered $name for the given elements
+// (all elements if the second argument is omitted)
+use_reset($name, $elements = 'all')
+  return true
 
 
 // `apply_reset` the same above, but apply things straight away
