@@ -46,6 +46,16 @@ reset($elements)
       if ('all' in $reset_elements) or ($element in $reset_elements)
         $should_reset = true
 
+    if $element == 'all' and selector() == '&'
+      for $reset_family, $reset_family_content in $registered_resets
+        if $reset_family in $used_resets
+          for $reset_group, $reset_content in $reset_family_content
+            $selector = $reset_content.elements ? join(', ', $reset_content.elements) : $reset_group
+            $what = {}
+            $what[$selector] = '$reset_' + $reset_family + '_' + $reset_group
+            push($what_to_reset, $what)
+      $should_reset = false
+
     if $should_reset
       for $reset_family, $reset_family_content in $registered_resets
         for $reset_group, $reset_content in $reset_family_content
@@ -57,6 +67,17 @@ reset($elements)
             if $element == $reset_group
               $should_reset = true
 
+          if $reset_group == $element and $reset_content.elements
+            $what = {}
+
+            // Use the els from group if in global scope, current selector otherwise
+            $selector = join(', ', $reset_content.elements)
+            $selector = '&' if selector() != '&'
+
+            $what[$selector] = '$reset_' + $reset_family + '_' + $reset_group
+            push($what_to_reset, $what)
+            $should_reset = false
+
           if $should_reset
             $selector = '&'
             $selector = $element if selector() == '&'
@@ -66,8 +87,11 @@ reset($elements)
 
   // Could be moved inside conditions above when the bug with extend would be fixed
   for $item in $what_to_reset
-    {keys($item)}
-      @extend {values($item)}
+    // Again, as we can't use normal push/extend in conds, we need this here
+    $selector = keys(length($what_to_reset) == 1 ? $what_to_reset : $item)
+    $placeholder = values(length($what_to_reset) == 1 ? $what_to_reset : $item)
+    {$selector}
+      @extend {$placeholder}
 
 // `enhance_reset` would enhance the given reset key with the given hash or block
 

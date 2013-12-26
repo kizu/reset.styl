@@ -1,0 +1,11 @@
+ol, ul, li, table, div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+aside, section, article {
+  display: block;
+}
+ul {
+  list-style-type: none;
+}
