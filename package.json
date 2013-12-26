@@ -1,0 +1,32 @@
+{
+  "name": "reset.styl",
+  "version": "0.1.0",
+  "author": "Roman Komarov <kizmarh@ya.ru> (http://kizu.ru/en/)",
+  "licence": "MIT",
+  "description": "Just one powerful implementation of those popular resets in Stylus",
+  "keywords": [
+    "stylus",
+    "reset",
+    "mixins"
+  ],
+  "homepage": "https://github.com/kizu/reset.styl#readme",
+  "bugs": {
+    "url": "http://github.com/kizu/reset.styl/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kizu/reset.styl.git"
+  },
+  "devDependencies": {
+    "stylus": "0.41.x",
+    "glob": "3.2.x",
+    "mocha": "*",
+    "should": "*"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test-runner.js --require should --reporter list"
+  },
+  "engines": {
+    "node": ">=0.6"
+  }
+}
