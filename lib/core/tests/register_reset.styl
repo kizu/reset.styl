@@ -1,0 +1,32 @@
+$reset-whatever-declaration = {
+  'base': {
+    'elements': 'ol' 'ul' 'li' 'table' 'div'
+
+    'rules': {
+      margin: 0
+      padding: 0
+      border: 0
+    }
+  }
+
+  'whatever': {
+    'elements': 'aside' 'section' 'article'
+
+    'rules': {
+      display: block
+    }
+  }
+
+  'ul': {
+    'rules': {
+      list-style-type: none
+    }
+  }
+}
+
+register_reset('whatever', $reset-whatever-declaration)
+
+.foo
+  test1: keys($registered_resets)
+  test2: 'meyer' in $registered_resets
+  test3: 'lolwut' in $registered_resets

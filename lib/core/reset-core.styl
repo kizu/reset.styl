@@ -1,4 +1,4 @@
-// Core functions for make the reset work
+// Core functions
 // ======================================
 
 // Get the list of the items to reset from a string
@@ -7,8 +7,11 @@ get_reset_items($string)
 
 
 // Function to register the given reset $declaration with the given $name
+$registered_resets = {}
 register_reset($name, $declaration)
-  return true
+  // No optimization here. Yet.
+  unless $name in $registered_resets
+    $registered_resets[$name] = $declaration
 
 
 // Function to use the reset with the registered $name for the given elements
