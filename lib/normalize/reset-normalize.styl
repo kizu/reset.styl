@@ -1,0 +1,288 @@
+/* normalize.css v2.1.3 | MIT License | git.io/normalize */
+
+// Reset declaration
+$reset-normalize-declaration = {
+  'html5-block': {
+    'elements': 'article' 'aside' 'details' 'figcaption' 'figure' 'footer' 'header' 'hgroup' 'main' 'nav' 'section' 'summary'
+
+    'rules': {
+      display: block
+    }
+  }
+
+  'html5-inline-block': {
+    'elements': 'audio' 'canvas' 'video'
+
+    'rules': {
+      display: inline-block
+    }
+  }
+
+  'audio': {
+    'rules': {
+      '&:not([controls])': {
+        display: none
+        height: 0
+      }
+    }
+  }
+
+  'hidden': {
+    'elements': '[hidden]' 'template'
+
+    'rules': {
+      display: none
+    }
+  }
+
+  'html': {
+    'rules': {
+      font-family: sans-serif
+      -ms-text-size-adjust: 100%
+      -webkit-text-size-adjust: 100%
+    }
+  }
+
+  'body': {
+    'rules': {
+      margin: 0
+    }
+  }
+
+  'a': {
+    'rules': {
+      background: transparent
+
+      '&:focus': {
+        outline: thin dotted
+      }
+
+      '&:active, &:hover': {
+        outline: 0
+      }
+    }
+  }
+
+  'h1': {
+    'rules': {
+      font-size: 2em
+    }
+  }
+
+  'abbr': {
+    'rules': {
+      '&[title]': {
+        border-bottom: 1px dotted
+      }
+    }
+  }
+
+  'bold': {
+    'elements': 'b' 'strong'
+
+    'rules': {
+      font-weight: bold
+    }
+  }
+
+  'dfn': {
+    'rules': {
+      font-style: italic
+    }
+  }
+
+  'hr': {
+    'rules': {
+      -moz-box-sizing: content-box
+      box-sizing: content-box
+      height: 0
+    }
+  }
+
+  'mark': {
+    'rules': {
+      background: #ff0
+      color: #000
+    }
+  }
+
+  'code-blocks': {
+    'elements': 'code' 'kbd' 'pre' 'samp'
+
+    'rules': {
+      font-family: unquote('monospace, serif')
+      font-size: 1em
+    }
+  }
+
+  'pre': {
+    'rules': {
+      white-space: nowrap
+    }
+  }
+
+  'q': {
+    'rules': {
+      quotes: "\201C" "\201D" "\2018" "\2019"
+    }
+  }
+
+  'small': {
+    'rules': {
+      font-size: 80%
+    }
+  }
+
+  'supsub': {
+    'elements': 'sub' 'sup'
+
+    'rules': {
+      font-size: 75%
+      line-height: 0
+      position: relative
+      vertical-align: baseline
+    }
+  }
+
+  'sup': {
+    'rules': {
+      top: -0.5em
+    }
+  }
+
+  'sub': {
+    'rules': {
+      bottom: -0.25em
+    }
+  }
+
+  'img': {
+    'rules': {
+      border: 0
+    }
+  }
+
+  'svg': {
+    'rules': {
+      '&:not(:root)': {
+        overflow: hidden
+      }
+    }
+  }
+
+  'figure': {
+    'rules': {
+      margin: 0
+    }
+  }
+
+  'fieldset': {
+    'rules': {
+      border: 1px solid #c0c0c0
+      margin: 0 2px
+      padding: 0.35em 0.625em 0.75em
+    }
+  }
+
+  'legend': {
+    'rules': {
+      border: 0
+      padding: 0
+    }
+  }
+
+  'inputs': {
+    'elements': 'button' 'input' 'select' 'textarea'
+
+    'rules': {
+      font-family: inherit
+      font-size: 100%
+      margin: 0
+    }
+  }
+
+  'buttons': {
+    'elements': 'button' 'input'
+
+    'rules': {
+      line-height: normal
+    }
+  }
+
+  'selects': {
+    'elements': 'button' 'select'
+
+    'rules': {
+      text-transform: none
+    }
+  }
+
+  'webkit-bugs': {
+    'elements': 'button' 'html input[type="button"]' 'input[type="reset"]' 'input[type="submit"]'
+
+    'rules': {
+      -webkit-appearance: button
+      cursor: pointer
+    }
+  }
+
+  'disabled': {
+    'elements': 'button[disabled]' 'html input[disabled]'
+
+    'rules': {
+      cursor: default
+    }
+  }
+
+  'box': {
+    'elements': 'input[type="checkbox]' 'input[type="radio"]'
+
+    'rules': {
+      box-sizing: border-box
+      padding: 0
+    }
+  }
+
+  'search': {
+    'elements': 'input[type="search]'
+
+    'rules': {
+      -webkit-appearance: textfield
+      -moz-box-sizing: content-box
+      -webkit-box-sizing: content-box
+      box-sizing: content-box
+
+      '&::-webkit-search-cancel-button, &::-webkit-search-decoration': {
+        -webkit-appearance: none
+      }
+    }
+  }
+
+  'inner-focus': {
+    'elements': 'button' 'input'
+
+    'rules': {
+      '&::-moz-focus-inner': {
+        border: 0
+        padding: 0
+      }
+    }
+  }
+
+  'textarea': {
+    'rules': {
+      overflow: auto
+      vertical-align: top
+    }
+  }
+
+  'table': {
+    'rules': {
+      border-collapse: collapse
+      border-spacing: 0
+    }
+  }
+}
+
+// Registering the reset
+register_reset('normalize', $reset-normalize-declaration)
