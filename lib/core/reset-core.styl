@@ -34,6 +34,23 @@ use_reset($name, $elements = 'all')
           {$content}
 
 
+$resets_list = {}
+$resets_aliases = {}
+
+use_reset2($name)
+  // , $elements = 'all' — premature feature creep
+  if selector() != '&'
+    error('`use_reset` can be used only at the top level, not inside the selector scope!')
+
+  _use($key, $value)
+
+    return lol
+
+  if $name in $registered_resets
+    for $key, $value in $registered_resets[$name]
+      _use($key, $value)
+
+
 // The main function for calling the reset
 reset($elements = 'all')
   $elements = get_reset_items($elements)

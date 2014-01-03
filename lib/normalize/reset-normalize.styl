@@ -2,55 +2,42 @@
 
 // Reset declaration
 $reset-normalize-declaration = {
-  'html5-block': {
-    'elements': 'article' 'aside' 'details' 'figcaption' 'figure' 'footer' 'header' 'hgroup' 'main' 'nav' 'section' 'summary'
-
-    'rules': {
+  'html5': {
+    'article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary': {
       display: block
     }
-  }
 
-  'html5-inline-block': {
-    'elements': 'audio' 'canvas' 'video'
-
-    'rules': {
+    'audio, canvas, video': {
       display: inline-block
     }
-  }
 
-  'audio': {
-    'rules': {
+    'audio': {
       '&:not([controls])': {
         display: none
         height: 0
       }
     }
-  }
 
-  'hidden': {
-    'elements': '[hidden]' 'template'
-
-    'rules': {
+    '[hidden], template': {
       display: none
     }
+
   }
 
-  'html': {
-    'rules': {
+  'base': {
+    'html': {
       font-family: sans-serif
       -ms-text-size-adjust: 100%
       -webkit-text-size-adjust: 100%
     }
-  }
 
-  'body': {
-    'rules': {
+    'body': {
       margin: 0
     }
   }
 
-  'a': {
-    'rules': {
+  'links': {
+    'a': {
       background: transparent
 
       '&:focus': {
@@ -63,221 +50,154 @@ $reset-normalize-declaration = {
     }
   }
 
-  'h1': {
-    'rules': {
+  'typography': {
+    'h1': {
       font-size: 2em
     }
-  }
 
-  'abbr': {
-    'rules': {
+    'abbr': {
       '&[title]': {
         border-bottom: 1px dotted
       }
     }
-  }
 
-  'bold': {
-    'elements': 'b' 'strong'
-
-    'rules': {
+    'b, strong': {
       font-weight: bold
     }
-  }
 
-  'dfn': {
-    'rules': {
+    'dfn': {
       font-style: italic
     }
-  }
 
-  'hr': {
-    'rules': {
+    'hr': {
       -moz-box-sizing: content-box
       box-sizing: content-box
       height: 0
     }
-  }
 
-  'mark': {
-    'rules': {
+    'mark': {
       background: #ff0
       color: #000
     }
-  }
 
-  'code-blocks': {
-    'elements': 'code' 'kbd' 'pre' 'samp'
-
-    'rules': {
+    'code, kbd, pre, samp': {
       font-family: unquote('monospace, serif')
       font-size: 1em
     }
-  }
 
-  'pre': {
-    'rules': {
+    'pre': {
       white-space: nowrap
     }
-  }
 
-  'q': {
-    'rules': {
+    'q': {
       quotes: "\201C" "\201D" "\2018" "\2019"
     }
-  }
 
-  'small': {
-    'rules': {
+    'small': {
       font-size: 80%
     }
-  }
 
-  'supsub': {
-    'elements': 'sub' 'sup'
-
-    'rules': {
+    'sub, sup': {
       font-size: 75%
       line-height: 0
       position: relative
       vertical-align: baseline
     }
-  }
 
-  'sup': {
-    'rules': {
+    'sup': {
       top: -0.5em
     }
-  }
 
-  'sub': {
-    'rules': {
+    'sub': {
       bottom: -0.25em
     }
   }
 
-  'img': {
-    'rules': {
+  'embedded': {
+    'img': {
       border: 0
     }
-  }
 
-  'svg': {
-    'rules': {
+    'svg': {
       '&:not(:root)': {
         overflow: hidden
       }
     }
   }
 
-  'figure': {
-    'rules': {
+  'figures': {
+    'figure': {
       margin: 0
     }
   }
 
-  'fieldset': {
-    'rules': {
+  'forms': {
+    'fieldset': {
       border: 1px solid #c0c0c0
       margin: 0 2px
       padding: 0.35em 0.625em 0.75em
     }
-  }
 
-  'legend': {
-    'rules': {
+    'legend': {
       border: 0
       padding: 0
     }
-  }
 
-  'inputs': {
-    'elements': 'button' 'input' 'select' 'textarea'
-
-    'rules': {
+    'button, input, select, textarea': {
       font-family: inherit
       font-size: 100%
       margin: 0
     }
-  }
 
-  'buttons': {
-    'elements': 'button' 'input'
-
-    'rules': {
+    'button, input': {
       line-height: normal
     }
-  }
 
-  'selects': {
-    'elements': 'button' 'select'
-
-    'rules': {
+    'button, select': {
       text-transform: none
     }
-  }
 
-  'webkit-bugs': {
-    'elements': 'button' 'html input[type="button"]' 'input[type="reset"]' 'input[type="submit"]'
-
-    'rules': {
+    'button, html input[type="button"], input[type="reset"], input[type="submit"]': {
       -webkit-appearance: button
       cursor: pointer
     }
-  }
 
-  'disabled': {
-    'elements': 'button[disabled]' 'html input[disabled]'
-
-    'rules': {
+    'button[disabled], html input[disabled]': {
       cursor: default
     }
-  }
 
-  'box': {
-    'elements': 'input[type="checkbox]' 'input[type="radio"]'
-
-    'rules': {
+    'input[type="checkbox], input[type="radio"]': {
       box-sizing: border-box
       padding: 0
     }
-  }
 
-  'search': {
-    'elements': 'input[type="search]'
+    'input-search': {
+      'input[type="search]': {
+        -webkit-appearance: textfield
+        -moz-box-sizing: content-box
+        -webkit-box-sizing: content-box
+        box-sizing: content-box
 
-    'rules': {
-      -webkit-appearance: textfield
-      -moz-box-sizing: content-box
-      -webkit-box-sizing: content-box
-      box-sizing: content-box
-
-      '&::-webkit-search-cancel-button, &::-webkit-search-decoration': {
-        -webkit-appearance: none
+        '&::-webkit-search-cancel-button, &::-webkit-search-decoration': {
+          -webkit-appearance: none
+        }
       }
     }
-  }
-
-  'inner-focus': {
-    'elements': 'button' 'input'
-
-    'rules': {
+    'button, input': {
       '&::-moz-focus-inner': {
         border: 0
         padding: 0
       }
     }
-  }
 
-  'textarea': {
-    'rules': {
+    'textarea': {
       overflow: auto
       vertical-align: top
     }
   }
 
-  'table': {
-    'rules': {
+  'tables': {
+    'table': {
       border-collapse: collapse
       border-spacing: 0
     }
